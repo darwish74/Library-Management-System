@@ -12,37 +12,37 @@ namespace Library_Management_System
         public void AddBook(Book book) 
         {
             Books.Add(book);
-            Console.WriteLine($"Book '{book.title}' by {book.author} added to the library.");
+            Console.WriteLine($"Book '{book.Title}' by {book.Author} added to the library.");
         }
-        public string SearchBookByTitle(string title)
+        public string SearchBookByTitle(string Title)
         {
             for (int i = 0; i < Books.Count; i++)
             {
-                if (Books[i].title == title)
-                    return $"Book '{Books[i].title}' by {Books[i].author} ISBN {Books[i].isbn}";
+                if (Books[i].Title == Title)
+                    return $"Book '{Books[i].Title}' by {Books[i].Author} ISBN {Books[i].ISBN}";
             }
-            return $"This Book with {title} is not found";
+            return $"This Book with {Title} is not found";
         }
-        public string BorrowBook(string title)
+        public string BorrowBook(string Title)
         {                                                      
          for(int i = 0;i < Books.Count;i++) 
             {
-                if (Books[i].title == title && Books[i].availability)
+                if (Books[i].Title == Title && Books[i].Availability)
                 {
-                    Books[i].availability = false ;
-                    return $"You have borrowed '{Books[i].title}'.";
+                    Books[i].Availability = false ;
+                    return $"You have borrowed '{Books[i].Title}'.";
                 }                
             }  
          return $"This book is not found or already borrowed .";
         }
-        public string ReturnBook(string title)
+        public string ReturnBook(string Title)
         {
             for (int i = 0; i <Books.Count; i++)
             {
-                if (Books[i].title == title && !Books[i].availability)
+                if (Books[i].Title == Title && !Books[i].Availability)
                 {
-                    Books[i].availability = true;
-                    return $"You have returned '{Books[i].title}'.";
+                    Books[i].Availability = true;
+                    return $"You have returned '{Books[i].Title}'.";
                 }
             }
             return $"This book is not borrowed.";
